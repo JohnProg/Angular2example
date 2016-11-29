@@ -1,0 +1,9 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    <h4 class="modal-title">App Demo </h4>
+</div>
+<div class="modal-body">
+    <my-product [product]="modalObject"></my-product>
+</div>

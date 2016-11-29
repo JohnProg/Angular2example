@@ -1,0 +1,11 @@
+ <div class="card text-xs-center">
+        <img *ngIf="product.imageUrl.length" class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+        <div class="card-block bg-card">
+            <h4 class="card-title">{{product.name}}</h4>
+            <p class="card-text" [innerText]="product.description | myEllipsis:50">
+            </p>
+            <span>{{ product.releaseDate | date:"MM/dd/yy" }}</span>
+            <br/>
+            <a  class="btn btn-danger mycolor" (click)="viewDetail()">Go somewhere</a>
+        </div>
+    </div>

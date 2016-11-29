@@ -1,0 +1,16 @@
+<div class="card card-outline-primary" *ngIf="product">
+        <div class="card-block">
+            <h4 class="card-title">{{product.name}}</h4>
+            <h6 class="card-subtitle text-muted">{{product.code}}</h6>
+        </div>
+        <div class="card-block text-xs-center col-lg-6">
+            <img *ngIf="product.imageUrl.length" class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+        </div>
+        <div class="card-block">
+            <p class="card-text">{{product.description}}</p>
+            <label class="price">Price: $ {{product.price}}</label>
+            <br>
+            <a href="#" class="card-link">Compare</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>

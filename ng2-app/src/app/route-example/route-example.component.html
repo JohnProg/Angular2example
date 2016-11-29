@@ -1,0 +1,37 @@
+<div class="row">
+    <a href="" [routerLink="/productCreate"]>
+      <i class="fa fa-plus"></i>
+      Agregar producto
+    </a>
+    <table class="table table-bordered table-primary">
+        <thead class="thead-inverse">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>
+                  Opciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let product of products | async">
+                <td>{{product.id}}</td>
+                <td>
+                    <a href="" [routerLink]="['/products', product.id]">
+                     {{product.name}}
+                     </a>
+                </td>
+                <td> {{product.price}}</td>
+                <td>
+                  <a href="" [routerLink]="['/productEdit', product.id]">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+                  <a href="javascript:void(0)" (click)="deleteModel(product)">
+                    <i class="fa fa-trash"></i>
+                  </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

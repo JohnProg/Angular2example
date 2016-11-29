@@ -1,0 +1,9 @@
+<div class="row">
+<div *ngFor="let product of products">
+    <div class="col-lg-3">
+       <product-item [product]="product" (eventEdit)="goDetails($event);"></product-item>
+    </div>
+</div>
+</div>
+<template ngbModalContainer>  
+</template>

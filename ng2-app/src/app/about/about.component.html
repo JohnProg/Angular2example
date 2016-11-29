@@ -1,0 +1,9 @@
+<p>
+  About Works!
+  <br>
+  <span myHighlight> My fisrt Directive myHighlight</span>
+  <br>
+   <span class="fieldname">Your balance is</span>: {{ balanceAmount | myCurrency }}
+  <br>
+   <input type="text" [ngModel]="balanceAmount" myCurrencyFormatter (ngModelChange)="changeModel($event)" />
+</p>
