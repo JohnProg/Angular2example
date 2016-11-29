@@ -8,7 +8,7 @@ export class EllipsisPipe implements PipeTransform  {
     if (args === undefined) {
       return val;
     }
-    if (val.length > args) {
+    if (val && val.length > args) {
       let myData=val.substring(0, args) + '...';
       console.log(myData);
       return myData;

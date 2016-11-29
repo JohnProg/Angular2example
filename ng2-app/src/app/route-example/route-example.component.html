@@ -1,5 +1,6 @@
 <div class="row">
-    <a href="" [routerLink="/productCreate"]>
+    <a href="" [routerLink]="['productCreate']"
+      class="btn btn-primary m-b-10 pull-right">
       <i class="fa fa-plus"></i>
       Agregar producto
     </a>
@@ -15,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr  *ngFor="let product of products | async">
+            <tr  *ngFor="let product of products">
                 <td>{{product.id}}</td>
                 <td>
                     <a href="" [routerLink]="['/products', product.id]">
@@ -24,10 +25,13 @@
                 </td>
                 <td> {{product.price}}</td>
                 <td>
-                  <a href="" [routerLink]="['/productEdit', product.id]">
+                  <a href=""
+                     [routerLink]="['/products', product.id]">
                     <i class="fa fa-pencil"></i>
                   </a>
-                  <a href="javascript:void(0)" (click)="deleteModel(product)">
+                  <a class="btn btn-default"
+                     href="javascript:void(0)"
+                     (click)="deleteProductItem(product)">
                     <i class="fa fa-trash"></i>
                   </a>
                 </td>

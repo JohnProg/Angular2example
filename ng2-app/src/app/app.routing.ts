@@ -7,6 +7,7 @@ import { ExampleComponent} from './example/example.component';
 import { RouteExampleComponent  } from './route-example/route-example.component';
 import { RouteComponent  } from './route-example/route.component';
 import { RouteItemComponent } from './route-item-example/route-item-example.component';
+import { RouteCreateComponent } from './route-create-example/route-create-example.component';
 
 import{ LoginComponent} from './login/login.component';
 import { CanActivateAuthGuard } from './shared/can-active.service';
@@ -16,8 +17,6 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'example', component: ExampleComponent},
   {path:'login', component:LoginComponent},
-  /*{path:'products', component:RouteExampleComponent},
-  {path:'products/:id', component:RouteItemComponent},*/
   {
     path:'products',
     component:RouteComponent,
@@ -25,9 +24,8 @@ const routes: Routes = [
     canActivateChild:[CanActivateAuthGuard],
     children:[
       { path: '', component: RouteExampleComponent },
-      { path: ':id', component: RouteItemComponent },
-      { path: 'productEdit/:id', component: RouteExampleComponent },
-      { path: 'productCreate', component: RouteExampleComponent }
+      { path: 'productCreate', component: RouteCreateComponent },
+      { path: ':id', component: RouteItemComponent }
     ]
   }
 ];

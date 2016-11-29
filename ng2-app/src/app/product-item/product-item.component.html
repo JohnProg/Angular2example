@@ -1,5 +1,5 @@
  <div class="card text-xs-center">
-        <img *ngIf="product.imageUrl.length" class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+        <img *ngIf="product.imageUrl && product.imageUrl.length" class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
         <div class="card-block bg-card">
             <h4 class="card-title">{{product.name}}</h4>
             <p class="card-text" [innerText]="product.description | myEllipsis:50">

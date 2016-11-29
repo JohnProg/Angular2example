@@ -9,7 +9,6 @@ export class ExampleService {
   private actionUrl: string;
   private headers: Headers;
   products: Array<Example.Models.IProduct>;
-  productsObserver: Observable<Example.Models.IProduct[]>;
 
   constructor(private http: Http) {
     this.actionUrl = CONFIGURATION.baseUrls.server +
@@ -21,11 +20,9 @@ export class ExampleService {
   }
 
   getListProducts():  Observable<Example.Models.IProduct[]> {
-    this.productsObserver = this.http.get(this.actionUrl)
+    return this.http.get(this.actionUrl)
       .map((res: Response) => res.json())
       .catch(this.handleError);
-
-    return this.productsObserver;
   }
 
   getTranslate():Observable<any>{
@@ -41,17 +38,15 @@ export class ExampleService {
             .catch(this.handleError);
   }
 
-  addProduct(foodName: string): Observable<Example.Models.IProduct> {
-        let toAdd: string = JSON.stringify({ ItemName: foodName });
-
-        return this.http.post(this.actionUrl, toAdd, { headers: this.headers })
+  addProduct(product: Example.Models.IProduct): Observable<Example.Models.IProduct> {
+        return this.http.post(this.actionUrl, JSON.stringify(product), { headers: this.headers })
             .map((response: Response) => <Example.Models.IProduct>response.json())
             .catch(this.handleError);
     }
 
-  updateProduct(id: number, productToUpdate: Example.Models.IProduct): Observable<Example.Models.IProduct> {
+  updateProduct(id: number, productToUpdate: Example.Models.IProduct) {
     return this.http.put(this.actionUrl + id, JSON.stringify(productToUpdate), { headers: this.headers })
-        .map((response: Response) => <Example.Models.IProduct>response.json())
+        .map((response: Response) => response.json())
         .catch(this.handleError);
   }
 
@@ -59,6 +54,7 @@ export class ExampleService {
     return this.http.delete(this.actionUrl + id)
         .catch(this.handleError);;
   }
+
   private handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');

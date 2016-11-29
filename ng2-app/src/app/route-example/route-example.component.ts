@@ -10,19 +10,37 @@ import IProduct = Example.Models.IProduct;
 
 })
 export class RouteExampleComponent implements OnInit {
-    products: Observable<Example.Models.IProduct[]>;
+    products: Example.Models.IProduct[];
     selectedProduct: any;
     constructor(private exampleService: ExampleService) {
         // Do stuff
     }
 
     ngOnInit() {
-       let self = this;
-       this.products= this.exampleService.getListProducts();
+       this.exampleService.getListProducts()
+            .subscribe((data: IProduct[]) => this.products = data);
     }
     goDetails(selectedProduct: any) {
-        
+
     }
+    public deleteProductItem(productItem: IProduct) {
+      if (confirm('Are you sure you want to delete user ' + productItem.name)) {
+        this.exampleService.deleteProduct(productItem.id)
+           .subscribe(
+             response => {
+                 this.products.forEach((u: IProduct, i: number) => {
+                  if (u.id === productItem.id) {
+                    this.products.splice(i, 1);
+                  }
+                });
+             }, error => {
+                 console.log(error);
+             }, () => {
+                 console.log('Deleted complete');
+             }
+           );
+       }
+   }
 
 
 }

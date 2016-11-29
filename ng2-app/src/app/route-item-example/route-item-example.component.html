@@ -1,16 +1,23 @@
-<div class="row">
+<p *ngIf="successMessage" class="alert alert-success">{{successMessage}}</p>
+<p *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</p>
+<form class="row"
+      (ngSubmit)="updateProductItem()">
     <div *ngIf="product">
         <h4>{{product.name}} details</h4>
 
         <div>
             <label for="nametext">Name</label>
-            <input type="text" id="nametext" [(ngModel)]="product.name" />
+            <input type="text" id="nametext" [(ngModel)]="product.name" name="name"/>
         </div>
 
         <div>
-            <label for="typetext">Side</label>
-            <input type="text" id="typetext" [(ngModel)]="product.price" />
+            <label for="typetext">Price</label>
+            <input type="text" id="typetext" [(ngModel)]="product.price" name="price"/>
         </div>
     </div>
-<button [routerLink]="['/products']">Products List</button>
-</div>
+    <button type="submit"
+            class="btn btn-primary"
+            (click)="updateProductItem">Update Product</button>
+    <button class="btn btn-default"
+            [routerLink]="['/products']">Products List</button>
+</form>

@@ -4,7 +4,7 @@
             <h6 class="card-subtitle text-muted">{{product.code}}</h6>
         </div>
         <div class="card-block text-xs-center col-lg-6">
-            <img *ngIf="product.imageUrl.length" class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+            <img *ngIf="product.imageUrl && product.imageUrl.length" class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
         </div>
         <div class="card-block">
             <p class="card-text">{{product.description}}</p>

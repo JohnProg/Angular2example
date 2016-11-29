@@ -9,9 +9,10 @@ import IProduct = Example.Models.IProduct;
   templateUrl: 'route-item-example.component.html'
 })
 export class RouteItemComponent implements OnInit {
-  @Input() product: any;
-
+  product: IProduct;
   private id: any;
+  errorMessage: string;
+  successMessage: string;
 
   constructor(
     private exampleService: ExampleService,
@@ -41,7 +42,16 @@ export class RouteItemComponent implements OnInit {
     let route = ['/products'];
     this.router.navigate(route);
   }
-
+  updateProductItem() {
+    this.exampleService.updateProduct(this.id, this.product)
+      .subscribe(data => {
+          if (data.id) {
+              this.successMessage = `The product was updated successfully`;
+          } else {
+              this.errorMessage = 'Unable to save customer';
+          }
+      })
+  }
   private setEditCharacter(product: IProduct) {
     if (product) {
       this.product = product;
