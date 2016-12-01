@@ -2,7 +2,9 @@ import { Component, OnInit }  from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExampleService } from '../example/example.service';
+import { MyCurrencyPipe} from '../shared/my-currency.pipe';
 import IProduct = Example.Models.IProduct;
+
 
 @Component({
     selector: 'route-create-example',
@@ -33,4 +35,8 @@ export class RouteCreateComponent implements OnInit {
           this.addForm.reset();
       }
     }
+
+   private changeModel(ev) {
+    this.product.price = ev;
+  }
 }

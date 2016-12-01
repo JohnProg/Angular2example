@@ -2,6 +2,7 @@ import {Component, OnInit,ViewEncapsulation,} from '@angular/core';
 import { ExampleService } from '../example/example.service';
 import { Observable, Subject } from 'rxjs/Rx';
 import IProduct = Example.Models.IProduct;
+import { MyCurrencyPipe} from '../shared/my-currency.pipe';
 
 @Component({
     selector: 'route-example.component',

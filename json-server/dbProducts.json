@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 6,
+      "id": "1",
       "name": "FAITHFULL STEEL SHAFTED HATCHET ",
       "code": "FAISH114",
       "releaseDate": "2012-04-23T18:25:43.511Z",
@@ -10,23 +10,43 @@
       "imageUrl": "http://www.qualitygardentools.com/uploaded/thumbnails/FAISH114_2009_1000x1200.jpg"
     },
     {
+      "id": 2,
       "name": "orlando",
-      "price": "878",
-      "id": "9"
+      "price": "878"
     },
     {
-      "name": "fghfgh",
-      "price": "sxdgfdfdgd",
-      "id": "Byyphuifg"
+      "id": 3,
+      "name": "This is a test2",
+      "price": 3.99
     },
     {
-      "name": "ghjgj",
-      "price": "4545",
-      "id": "r1HC2Oifg"
+      "name": "Daniel",
+      "price": "111",
+      "id": 4
+    },
+    {
+      "name": "One Punch",
+      "price": "111",
+      "id": 5
+    },
+    {
+      "name": "Das",
+      "price": "11",
+      "id": 6
+    },
+    {
+      "name": "This is a test again",
+      "price": "-111",
+      "id": 7
+    },
+    {
+      "name": "Rosa",
+      "price": "1",
+      "id": 8
     }
   ],
   "profile": {
-    "name": "typicode"
+    "name": "3"
   },
   "users": [
     {

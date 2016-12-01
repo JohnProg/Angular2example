@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, URLSearchParams, RequestOptions, Response } from '@angular/http';
 import { Observable, Subject } from 'rxjs/Rx';
 import { CONFIGURATION } from '../shared/app.constants';
+import IProductPost = Example.Models.IProductPost;
 
 @Injectable()
 export class ExampleService {
@@ -38,7 +39,7 @@ export class ExampleService {
             .catch(this.handleError);
   }
 
-  addProduct(product: Example.Models.IProduct): Observable<Example.Models.IProduct> {
+  addProduct(product: IProductPost): Observable<Example.Models.IProduct> {
         return this.http.post(this.actionUrl, JSON.stringify(product), { headers: this.headers })
             .map((response: Response) => <Example.Models.IProduct>response.json())
             .catch(this.handleError);

@@ -23,7 +23,7 @@
                      {{product.name}}
                      </a>
                 </td>
-                <td> {{product.price}}</td>
+                <td> {{product.price | myCurrency}}</td>
                 <td>
                   <a href=""
                      [routerLink]="['/products', product.id]">

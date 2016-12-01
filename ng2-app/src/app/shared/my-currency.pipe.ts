@@ -28,7 +28,7 @@ export class MyCurrencyPipe implements PipeTransform {
 
     integer = integer.replace(/\B(?=(\d{3})+(?!\d))/g, this.THOUSANDS_SEPARATOR);
 
-    return this.PREFIX + integer + fraction + this.SUFFIX;
+    return this.PREFIX.replace(/[^\d.-]/g, '') + integer.replace(/[^\d.]/g, '') + fraction.replace(/[^\d.]/g, '') + this.SUFFIX;
   }
 
   parse(value: string, fractionSize: number = 2): string {
@@ -42,7 +42,7 @@ export class MyCurrencyPipe implements PipeTransform {
       ? this.DECIMAL_SEPARATOR + (fraction + PADDING).substring(0, fractionSize)
       : "";
 
-    return integer + fraction;
+    return integer.replace(/[^\d.-]/g, '') + fraction.replace(/[^\d.-]/g, '');
   }
 
 }
